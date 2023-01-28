@@ -16,6 +16,7 @@ class porductManager {
 function getProductos(){
     console.log(productos)
 }
+
 let acc=1
 function addProduct(titulo,descripcion,precio,thumbnail,code,stock){
     let id=acc
@@ -25,19 +26,10 @@ function addProduct(titulo,descripcion,precio,thumbnail,code,stock){
 }
 
 
-// console.log(productos.code)
-function validarCode(numAValidar){
-    const found = array1.find(numAValidar => numAValidar > productos.code);
-    console.log(found)
+// function validarCode(numAValidar){
+//     const found = array1.find(numAValidar => numAValidar > productos.code);
+//     console.log(found)
 
-}
-// function getElementById(id){
-//     let valorId=productos[id-1].id
-//     if(valorId=!id){
-//         console.log('Aun no contamos con ese producto')
-//     }else{
-//         console.log(productos[id-1])
-//     }
 // }
 
 function getElementById(id){
@@ -48,11 +40,4 @@ function getElementById(id){
     }
 }
 
-addProduct('producto prueba','Este es un producto prueba',200,'Sin imagen','abc123',25)
-addProduct('producto prueba','Este es un producto prueba',200,'Sin imagen','abc123',25)
-addProduct('producto prueba','Este es un producto prueba',200,'Sin imagen','abc123',25)
-addProduct('producto prueba','Este es un producto prueba',200,'Sin imagen','abc123',25)
-addProduct('producto prueba','Este es un producto prueba',200,'Sin imagen','abc123',25)
-addProduct('producto prueba','Este es un producto prueba',200,'Sin imagen','abc123',25)
 
-// getElementById(3)
