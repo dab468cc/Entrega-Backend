@@ -1,3 +1,6 @@
+const fs=require('fs')
+
+
 let productos=[]
 
 class porductManager {
@@ -30,6 +33,7 @@ function addProduct(titulo,descripcion,precio,thumbnail,code,stock){
         let producto=new porductManager(id,titulo,descripcion,precio,thumbnail,code,stock)
         productos.push(producto)
         return acc++
+        
         }
     
 }
@@ -51,11 +55,10 @@ function updateProduct(id,campo,cambio){
         paU=cambio
         productos[id-1][campo]=paU
         productos.push(paU)
-    }
-    
-    // console.log(productos[id-1])
-    
+    }        
 }
+
+
 
 function dealteProduct(id){
     if(id<=productos.length){
@@ -66,27 +69,48 @@ function dealteProduct(id){
     
 }
 
+// ------FUNCIONES FS-------
 
-// getProductos()
-addProduct('pan','pan duelce',2,'nana','abc123',10)
-addProduct('paja','pan muy duelce',2,'nana','paj89',10)
-addProduct('pan','pan duelce',2,'nana','abc123',10)
-addProduct('paja','pan muy duelce',2,'nana','paj89',10)
-addProduct('pan','pan duelce',2,'nana','abc123',10)
-addProduct('paja','pan muy duelce',2,'nana','paj89',10)
-addProduct('pan','pan duelce',2,'nana','abc123',10)
-addProduct('paja','pan muy duelce',2,'nana','paj89',10)
+function crearArchivo(array){
+    fs.writeFile('./array.json',JSON.stringify(array),(error)=>{
+        if(error)return console.log('error al escribir el archivo')
+    })
+}
 
-// getProductos()
-dealteProduct(35)
+function leerArchivo(){
+    fs.readFile('./array.json','utf-8',(error,resultado)=>{
+        if(error)return console.log('error al leer el archivo')
+        console.log(JSON.parse(resultado))
+    })
+}
+function agregarContendio(objeto){
+    fs.appendFile('./array.json',JSON.stringify(objeto),(error)=>{
+        if(error)return console.log('error al actualizar el archivo')
+    })
+}
 
-getProductos()
+function eliminarArchivo(){
+    fs.unlink('./array.json',(error)=>{
+        if(error)return console.log('error al borrar el archivo')
+    })
+}
 
-// console.log(productos[0].code)
-// const meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo'];
 
-// meses.splice(3,1);
-// console.log(meses);
+
+// --------EJECUCION------
+
+
+addProduct('pan','pan dulce',6,'thumbnail','123abc',6)
+addProduct('leche','leche',8,'thumbnail','123das',3)
+addProduct('jugo','jugo',7,'thumbnail','143asd',9)
+crearArchivo(productos)
+leerArchivo()
+eliminarArchivo()
+
+
+// ---------PROBLEMAS--------
+// preguntar por que al crear el array no se escriben bien las incluciones
+
 // ----Pendientes
 
 // ----validar el codigo
