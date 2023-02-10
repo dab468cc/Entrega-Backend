@@ -100,13 +100,21 @@ function eliminarArchivo(){
 // --------EJECUCION------
 
 
-addProduct('pan','pan dulce',6,'thumbnail','123abc',6)
-addProduct('leche','leche',8,'thumbnail','123das',3)
-addProduct('jugo','jugo',7,'thumbnail','143asd',9)
+addProduct('dona glaseada','pan dulce',5,'thumbnail','1234',6)
+addProduct('dona de chocolate','pan dulce',6,'thumbnail','4312',3)
+addProduct('dona de nuez','pan dulce',6,'thumbnail','1324',9)
+addProduct('dona de miel','pan dulce',6,'thumbnail','4212',6)
+addProduct('pastel de fresa','pan dulce',5,'thumbnail','2134',3)
+addProduct('pastel de nutela','pan dulce',5,'thumbnail','4231',9)
+addProduct('cafe americano','bebida',10,'thumbnail','4232',6)
+addProduct('capuchino','bebida',12,'thumbnail','1424',3)
+addProduct('leche','bebida',8,'thumbnail','2134',9)
+addProduct('chocolatada','bebida',10,'thumbnail','4214',9)
+
+// getProductos()
+
 crearArchivo(productos)
 leerArchivo()
-eliminarArchivo()
-
 
 // ---------PROBLEMAS--------
 // preguntar por que al crear el array no se escriben bien las incluciones
